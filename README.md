@@ -7,9 +7,9 @@
 
 Threat Website as a client-side application.
 
-Tutorial: https://framework.ajaxjs.com/docs/aj/
+Tutorial: https://framework.ajaxjs.com/docs/aj/.
 
-Java Documents: https://dev.ajaxjs.com/docs/javadoc/aj-net/
+Java Documents: https://dev.ajaxjs.com/docs/javadoc/aj-web/.
 
 # Install
 

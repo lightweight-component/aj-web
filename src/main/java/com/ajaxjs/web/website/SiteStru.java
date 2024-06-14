@@ -1,7 +1,7 @@
 package com.ajaxjs.web.website;
 
 import com.ajaxjs.json_db.SimpleJsonDB;
-import com.ajaxjs.json_db.map_traveler.MapUtils;
+import com.ajaxjs.util.map_traveler.MapUtils;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.util.CollectionUtils;
@@ -76,14 +76,15 @@ public class SiteStru extends SimpleJsonDB {
     }
 
     /**
-     * 用于 current 的对比 <li
-     * ${pageContext.request.contextPath.concat('/').concat(menu.fullPath).
-     * concat('/') == pageContext.request.requestURI ? ' class=selected' : ''}> IDE
-     * 语法报错，其实正确的 于是，为了不报错 <li ${PageNode.isCurrentNode(menu) ? ' class=selected' :
-     * ''}>
+     * 判断给定的节点是否为当前节点。当前节点的判断依据是请求的URI与节点的完整路径（包括上下文路径）是否匹配。如果匹配，则认为该节点是当前节点。
+     * <p>
+     * 用于 current 的对比 li ${pageContext.request.contextPath.concat('/').concat(menu.fullPath).
+     * concat('/') == pageContext.request.requestURI ? ' class=selected' : ''}
+     * IDE 语法报错，其实正确的 于是，为了不报错 li ${PageNode.isCurrentNode(menu) ? ' class=selected' : ''}
      *
-     * @param node 节点
-     * @return true 表示为是当前节点
+     * @param node    待判断的节点，以 Map 形式表示，其中包含节点的路径信息。
+     * @param request 当前的 HttpServletRequest 对象，用于获取请求的 URI 和上下文路径。
+     * @return 如果节点是当前节点，则返回 true；否则返回 false。
      */
     public boolean isCurrentNode(Map<String, ?> node, HttpServletRequest request) {
         if (node == null || node.get(MapUtils.PATH) == null) return false;
@@ -146,6 +147,7 @@ public class SiteStru extends SimpleJsonDB {
     /**
      * 获取页脚的网站地图
      *
+     * @param request 请求对象
      * @return 页脚的网站地图
      */
     public String getSiteMap(HttpServletRequest request) {
@@ -184,7 +186,11 @@ public class SiteStru extends SimpleJsonDB {
     }
 
     /**
-     * 面包屑导航
+     * 根据请求构建面包屑导航字符串。
+     * 面包屑导航用于显示用户在网站中的位置，帮助用户理解当前页面在整个网站结构中的位置。
+     *
+     * @param request HttpServletRequest 对象，用于获取请求相关的信息。
+     * @return 返回构建好的面包屑导航字符串。
      */
     public String buildBreadCrumb(HttpServletRequest request) {
         String ctx = request.getContextPath(), uri = request.getRequestURI();
@@ -195,7 +201,7 @@ public class SiteStru extends SimpleJsonDB {
         Map<String, Object> node = getPageNode(request);
 
         if (node == null) {
-            if (uri.equals(request.getContextPath() + "/") || uri.indexOf(ctx + "/index") != -1) { // 重复了 TODO
+            if (uri.equals(request.getContextPath() + "/") || uri.contains(ctx + "/index")) { // 重复了 TODO
                 // 首页
             } else {
                 System.err.println("不能渲染导航定位，该页面可能：1、未引用 head.jsp 创建 NODE 节点；2、未定义该路径之说明。" + uri);

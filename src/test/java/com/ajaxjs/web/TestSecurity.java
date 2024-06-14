@@ -45,6 +45,6 @@ public class TestSecurity {
 
 		String script = "Foo <script>alert(3)</script>";
 		assertEquals("Foo ", Filter.cleanXSS(script));
-		assertEquals("&lt;script&gt;alert(3)&lt;/script&gt;", Filter.cleanXSS(script, Filter.Handle.TYPE_ESCAPSE));
+		assertEquals("&lt;script&gt;alert(3)&lt;/script&gt;", Filter.cleanXSS(script, Filter.Handle.TYPE_ESCCASE));
 	}
 }

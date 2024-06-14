@@ -70,6 +70,9 @@ public class GetData {
 
     /**
      * 获取其他 QueryString 参数
+     *
+     * @param request HttpServletRequest 对象
+     * @return 其他 QueryString 参数
      */
     public static String getQueryString(HttpServletRequest request) {
         Map<String, String[]> parameterMap = request.getParameterMap();

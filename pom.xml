@@ -6,7 +6,6 @@
         <groupId>com.ajaxjs</groupId>
         <artifactId>ajaxjs-parent</artifactId>
         <version>1.17</version>
-        <relativePath>../../pom.xml</relativePath>
     </parent>
     <artifactId>ajaxjs-web</artifactId>
     <name>aj-web</name>
