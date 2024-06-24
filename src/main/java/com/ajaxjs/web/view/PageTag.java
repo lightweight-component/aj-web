@@ -12,7 +12,7 @@
 // */
 //package com.ajaxjs.web.view;
 //
-//import com.ajaxjs.framework.PageResult;
+//import com.ajaxjs.data.PageResult;
 //import com.ajaxjs.util.map.MapTool;
 //import org.springframework.util.StringUtils;
 //
