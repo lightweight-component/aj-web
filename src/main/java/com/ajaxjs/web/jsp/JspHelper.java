@@ -2,7 +2,7 @@
 //
 //import com.ajaxjs.data.PageResult;
 //import com.ajaxjs.framework.entity.BaseEntityConstants;
-//import com.ajaxjs.framework.spring.DiContextUtil;
+//import com.ajaxjs.framework.DiContextUtil;
 //import com.ajaxjs.sql.JdbcHelper;
 //import com.ajaxjs.util.date.DateUtil;
 //import org.springframework.util.CollectionUtils;

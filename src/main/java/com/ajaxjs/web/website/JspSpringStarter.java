@@ -1,6 +1,6 @@
 package com.ajaxjs.web.website;
 
-import com.ajaxjs.framework.spring.CustomPropertySources;
+import com.ajaxjs.framework.CustomPropertySources;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
