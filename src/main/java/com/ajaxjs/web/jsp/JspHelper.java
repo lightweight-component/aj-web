@@ -1,7 +1,7 @@
 //package com.ajaxjs.web.jsp;
 //
 //import com.ajaxjs.data.PageResult;
-//import com.ajaxjs.framework.entity.BaseEntityConstants;
+//import com.ajaxjs.data.data_service.BaseEntityConstants;
 //import com.ajaxjs.framework.DiContextUtil;
 //import com.ajaxjs.sql.JdbcHelper;
 //import com.ajaxjs.util.date.DateUtil;
